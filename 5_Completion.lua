@@ -53,7 +53,7 @@ for i = 1, loopCount do
         local x, y, z, waitTime = unpack(location)
         teleport(x, y, z, waitTime)
     end
-    task.wait(4)
+    task.wait(6)
 end
 
 print("All teleportations completed!")
