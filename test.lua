@@ -178,11 +178,11 @@ local Toggle = LeftGroupbox:AddToggle("AutoPlant", {
     Callback = function(Value)
         if Value then
             while Toggle do
-                for _, seed in ipairs(SelectedSeeds) do
+                for _, seed in ipairs(seedNames) do
                     for _, location in ipairs(allLocations) do
                         local randomPosition = getRandomPositionInPart(location)
                         PlantSeed(seed, randomPosition)
-                        task.wait(0.1)
+                        task.wait(1)
                     end
                 end
             end
