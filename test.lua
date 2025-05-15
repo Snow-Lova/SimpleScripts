@@ -170,3 +170,22 @@ local Toggle = LeftGroupbox:AddToggle("AutoSell", {
         end
     end
 })
+
+local Toggle = LeftGroupbox:AddToggle("AutoPlant", {
+    Text = "Auto Plant",
+    Default = false,
+    Tooltip = "Automatically plants seeds.",
+    Callback = function(Value)
+        if Value then
+            while Toggle do
+                for _, seed in ipairs(SelectedSeeds) do
+                    for _, location in ipairs(allLocations) do
+                        local randomPosition = getRandomPositionInPart(location)
+                        PlantSeed(seed, randomPosition)
+                        task.wait(0.1)
+                    end
+                end
+            end
+        end
+    end
+})
